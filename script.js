@@ -7,7 +7,24 @@ $(document).ready(function(){
 
     $('#menu').removeClass('fa-times');
     $('header').removeClass('toggle')
-
+   if($(window).scrollTop() > 0){
+    $('.top').show();
+   } else {
+    $('.top').hide();
+   }
 
   });
+
+  $('a[herf*="#"]').on('click',function(e){
+
+e.preventDefault();
+$('html, body').animate(
+  {
+    scrollTop : $($(this).attr('herf')).offset().top,
+  },
+  500,
+  'linear'
+)
+
+  })
 });
